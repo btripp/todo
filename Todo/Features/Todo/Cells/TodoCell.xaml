@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Todo.TodoCell">
+    <ViewCell.ContextActions>
+            <MenuItem Text="Edit"
+                      Command="{Binding EditCommand}"
+                      CommandParameter="{Binding .}"/>
+            <MenuItem Text="Delete"
+                      Command="{Binding DeleteCommand}"
+                      CommandParameter="{Binding .}"
+                      IsDestructive="True" />
+         </ViewCell.ContextActions>
+    <ViewCell.View>
+        <StackLayout
+            x:Name="masterLayout"
+            BackgroundColor="White"
+            Padding="20,20,20,20"
+            Margin="0,0,0,3"
+            Orientation="Horizontal"
+            Spacing="15">
+            <Label Text="{Binding Name}"
+                   VerticalOptions="Center"
+                   HorizontalOptions="FillAndExpand"/>
+            <Label x:Name="itemCountLabel"
+                   Text="{Binding Count}"
+                   HorizontalOptions="End"
+                   FontSize="14"
+                   TextColor="#969696"
+                   VerticalOptions="Center"/>
+        </StackLayout>
+    </ViewCell.View>
+</ViewCell>
