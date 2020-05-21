@@ -3,6 +3,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Collections.Generic;
 using Xamarin.Forms;
+using System.Threading.Tasks;
+
 namespace Todo
 {
     public class TodoViewModel : BaseViewModel
@@ -67,12 +69,14 @@ namespace Todo
             if (!string.IsNullOrWhiteSpace(name))
             {
                 viewModel.Model.Name = name;
-                viewModel.Name = name;
                 RepoService.Update(viewModel.Model);
 
                 //force a size update
                 int index = ItemsSource.IndexOf(viewModel);
                 ItemsSource.Remove(viewModel);
+                if (Device.RuntimePlatform == Device.iOS)
+                    await Task.Delay(100);
+                viewModel.Name = name;
                 ItemsSource.Insert(index, viewModel);
             }
         }

@@ -12,6 +12,7 @@ namespace Todo
             EmptyText = "You haven't added any items to this list yet. Tap \"Add Item\" in the top right corner to add your first item.";
             ListTitle = title;
         }
+
         public override void ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var viewModel = e.Item as TodoCellViewModel;
@@ -19,6 +20,7 @@ namespace Todo
             RepoService.Update(viewModel.Model);
             viewModel.Complete = !viewModel.Complete;
         }
+
         string listTitle;
         public string ListTitle
         {

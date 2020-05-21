@@ -10,7 +10,6 @@ namespace Todo
         {
             TodoListView.ItemTemplate = new DataTemplate(typeof(TodoItemsCell));
 
-            //maybe not really worth the performance implication but wanted to keep it in the view model
             TitleLabel.SetBinding(Label.TextProperty, nameof(TodoItemsViewModel.ListTitle));
         }
     }

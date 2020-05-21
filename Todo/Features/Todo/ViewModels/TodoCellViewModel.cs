@@ -20,6 +20,7 @@ namespace Todo
             Complete = model.Complete;
             Count = model.UnfinishedCount;
         }
+
         public ImageSource Image => Complete ? "check" : "circle";
 
         string name;

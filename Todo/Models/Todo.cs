@@ -11,6 +11,7 @@ namespace Todo
 
         public bool Complete { get; set; }
 
+        [Indexed]
         public int TodoId { get; set; }
 
         public int UnfinishedCount { get; set; }

@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Todo" x:Class="Todo.TodoView"
              Padding="20,20,20,20"
-             BackgroundColor="#F5F5F8"
-             >
+             BackgroundColor="{StaticResource BackgroundGray}">
     <ContentView.Content>
         <Grid>
             <StackLayout>
@@ -31,14 +30,13 @@
                 </ListView>
             </StackLayout>
             <StackLayout
-                VerticalOptions="FillAndExpand"
+                BackgroundColor="{StaticResource BackgroundGray}"
+                VerticalOptions="Fill"
                 HorizontalOptions="Fill"
-                BackgroundColor="#F5F5F8"
                 IsVisible="{Binding IsEmpty}">
                     <Label
                         Text="{Binding EmptyText}"
                         HorizontalTextAlignment="Center"
-                        VerticalOptions="Start"
                         HorizontalOptions="Center"/>
             </StackLayout>
         </Grid>

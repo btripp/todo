@@ -4,7 +4,7 @@ namespace Todo
 {
     public class TodoItemsCell : TodoCell
     {
-        Image completeImage;
+        private Image completeImage;
         public TodoItemsCell()
         {
             InitializeComponents();

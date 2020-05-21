@@ -7,7 +7,9 @@ namespace Todo
     public abstract class DatabaseService
     {
         //only need one connection
-        public static SQLiteConnection Connection = new SQLiteConnection(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "data.db"));
+        protected static SQLiteConnection Connection =
+            new SQLiteConnection(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                "data.db"));
        
         public static void Initialize()
         {
