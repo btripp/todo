@@ -65,7 +65,7 @@ namespace Todo
 
         public async void Edit(TodoCellViewModel viewModel)
         {
-            string name = await MainPage.DisplayPromptAsync("Edit", AddEditText, "Okay");
+            string name = await MainPage.DisplayPromptAsync("Edit", AddEditText, "Okay", initialValue: viewModel.Name);
             if (!string.IsNullOrWhiteSpace(name))
             {
                 viewModel.Model.Name = name;
@@ -97,11 +97,15 @@ namespace Todo
             }
         }
 
-        public void Delete(TodoCellViewModel viewModel)
+        public async void Delete(TodoCellViewModel viewModel)
         {
-            RepoService.Delete(viewModel.Model);
-            ItemsSource.Remove(viewModel);
-            CheckIfEmpty();
+            bool confirm = await MainPage.DisplayAlert("Confirm", "Are you sure you'd like to delete this item?", "Okay", "Cancel");
+            if (confirm)
+            {
+                RepoService.Delete(viewModel.Model);
+                ItemsSource.Remove(viewModel);
+                CheckIfEmpty();
+            }
         }
 
         private void CheckIfEmpty()
