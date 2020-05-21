@@ -50,11 +50,11 @@ namespace Todo
         public virtual void LoadData()
         {
             var items = RepoService.LoadData();
-            ItemsSource = items.Select(x => GetViewModel(x)).AsObservable();
+            ItemsSource = items.Select(x => GetCellViewModel(x)).AsObservable();
             CheckIfEmpty();
         }
 
-        public TodoCellViewModel GetViewModel(Todo model)
+        public TodoCellViewModel GetCellViewModel(Todo model)
         {
             return new TodoCellViewModel(model)
             {
@@ -93,7 +93,7 @@ namespace Todo
                 };
                 RepoService.Add(model);
                 IsEmpty = false;
-                ItemsSource.Add(GetViewModel(model));
+                ItemsSource.Add(GetCellViewModel(model));
             }
         }
 
